@@ -23,7 +23,7 @@ fn main() {
     let mut rects = HashMap::<String, Rectangle>::new();
 
     loop {
-        println!("Enter a command (new, show, draw, change): ");
+        println!("Enter a command (new, show, draw): ");
 
         let command = str_input().to_lowercase().replace(" ", "");
 
@@ -75,6 +75,8 @@ fn main() {
                 println!("No rectangle found with the name {}", input);
             }
 
+        } else {
+            println!("\"{}\" is not valid command.", command);
         }
     }
 }
@@ -113,7 +115,6 @@ fn int_input() -> i32 {
     let mut input = String::new();
 
     loop {
-
         io::stdin().read_line(&mut input).expect("Failed to read input.");
 
         let input = input.trim();
@@ -123,5 +124,4 @@ fn int_input() -> i32 {
             Err(..) => println!("{} is not a valid number.", input),
         }
     }
-
 }
